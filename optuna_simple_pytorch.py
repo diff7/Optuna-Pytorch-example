@@ -21,7 +21,7 @@ from optuna.pruners import MedianPruner
 
 """
 SAMPLING:
-    we choose sampling strategy  to search our paramtres,
+    we choose sampling strategy  to search our parameters,
     among other stratagies we could choose random seach, gird search etc.
     see documentaion for optuna.sampler
 
@@ -55,10 +55,9 @@ STUDY_NAME = "TEST_MLP_PRUNING"
 
 
 """
-to each function with paramtres to optimize we pass 'trial' to suggest some parametres for us
-there are several types of suggestions most of them you will see here
+To each function with parameters to optimize we pass 'trial' to suggest some parameters for us
+there are several types of suggestions some of them will be below
 """
-
 
 def define_model(trial):
     # We optimize the number of layers, hidden untis and dropout ratio in each layer.
@@ -160,7 +159,7 @@ def objective(trial):
             raise optuna.exceptions.TrialPruned()
 
     """
-    Even though we track intermediate parametres we should return model's best score.
+    Even though we track intermediate parameters we should return model's best score.
     Not necessary the last one, depends on your case.
     """
     return evaluate_accuracy(model, valid_loader)
@@ -168,8 +167,8 @@ def objective(trial):
 
 if __name__ == "__main__":
     """
-    create study and save stduy results to sqlite (for other storages see documentaion)
-    later we can laod our study to examine results
+    Create a study and save stduy results to sqlite (for other storages see documentaion) 
+    later we can laod our study to examine results (an example in jupyter notebook )
     study = optuna.study.load_study(study_name=STUDY_NAME, storage='sqlite:///example.db')
     """
     sampler = TPESampler(seed=10)
