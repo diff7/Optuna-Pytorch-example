@@ -181,7 +181,7 @@ if __name__ == "__main__":
             interval_steps=2,
         ),
         study_name=STUDY_NAME,
-        storage="sqlite:///example_4.db",  # storing study results, other storages are available too, see documentation.
+        storage="sqlite:///example.db",  # storing study results, other storages are available too, see documentation.
         load_if_exists=True,
     )
 
